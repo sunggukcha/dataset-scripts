@@ -133,6 +133,13 @@ class Visualize(object):
                 pred = np.array(pred).astype('uint8')
                 origin = np.array(origin).astype('uint8')
                 saveas = os.path.join(save_dir, name)
+
+                if pred.shape != origin.shape:
+                        pred = Image.fromarray(pred.astype('uint8'))
+                        H, W = origin.shape[:2]
+                        pred = pred.resize( (W, H), Image.NEAREST )
+                        pred = np.asarray(pred)
+                        #if self.dataset == 'pascal' or self.dataset == 'pascal_toy': origin = origin.swapaxes(0, 1)
                 
                 result = origin
                 result[pred!=(0, 0, 0)] = result[pred!=(0, 0, 0)]/2 + pred[pred!=(0, 0, 0)]/2

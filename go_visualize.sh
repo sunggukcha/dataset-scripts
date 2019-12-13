@@ -1,6 +1,6 @@
 dataset='pascal'
 origin_dir="../../datasets/VOCdevkit/VOC2012/JPEGImages"
-prediction_dir="../../0.6261"
+prediction_dir="../../prd2"
 save_dir='./prd'
 
 mkdir $save_dir
