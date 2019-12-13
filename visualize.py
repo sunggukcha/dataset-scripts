@@ -142,7 +142,8 @@ class Visualize(object):
                         #if self.dataset == 'pascal' or self.dataset == 'pascal_toy': origin = origin.swapaxes(0, 1)
                 
                 result = origin
-                result[pred!=(0, 0, 0)] = result[pred!=(0, 0, 0)]/2 + pred[pred!=(0, 0, 0)]/2
+                #result[pred!=(0, 0, 0)] = result[pred!=(0, 0, 0)]/2 + pred[pred!=(0, 0, 0)]/2
+                result[pred!=(0, 0, 0)] = pred[pred!=(0, 0, 0)]
                 result = Image.fromarray(result.astype('uint8'), 'RGB')
                 result.save(saveas)
                 
